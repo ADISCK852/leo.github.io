@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Maps 展示公車路徑上所有公車點示例</title>
+  <style>
+    /* 定義地圖容器的樣式 */
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Google Maps 展示公車路徑上所有公車點示例</h1>
+
+  <div id="map"></div>
+
+  <script>
+    // 創建一個 Google Maps 初始化函數
+    function initMap() {
+      // 初始化地圖
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 24.051796, lng: 120.516135}, // 彰化經緯度
+        zoom: 12 // 設置地圖縮放級別
+      });
+
+      // 將全局的地圖變數儲存起來
+      window.map = map;
+
+      // 顯示公車路線和站點
+      showBusRouteAndStops();
+    }
+
+    // 顯示公車路線和站點的函數
+    function showBusRouteAndStops() {
+      var map = window.map;
+      var directionsService = new google.maps.DirectionsService();
+      var directionsRenderer = new google.maps.DirectionsRenderer();
+
+      // 將 DirectionsRenderer 關聯到地圖
+      directionsRenderer.setMap(map);
+
+      var request = {
+        origin: '彰化', // 起點
+        destination: '員林', // 終點
+        travelMode: 'TRANSIT' // 使用 'TRANSIT' 模式
+      };
+
+      // 發送路線請求
+      directionsService.route(request, function(result, status) {
+        if (status == 'OK') {
+          // 在地圖上顯示路線
+          directionsRenderer.setDirections(result);
+
+          // 獲取路線的步驟
+          var steps = result.routes[0].legs[0].steps;
+
+          // 遍歷步驟，並在每個步驟的起點顯示站點標記
+          steps.forEach(function(step) {
+            var marker = new google.maps.Marker({
+              position: step.start_location,
+              map: map,
+              title: step.instructions
+            });
+          });
+        }
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAewWLaU_k0ZoEKYT4JslOjsA3_fM3xujY&callback=initMap" async defer></script>
+</body>
+</html>

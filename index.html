@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>動態 Google 地圖</title>
+    <script src = "convert.js"></script>
+    <script src = "excel.js"></script>
+    <script src="point.js"></script>
+    <script src = "lastbestpath.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    </style>
+</head>
+
+<body>
+    <h1>動態 Google 地圖</h1>
+    
+    <script>
+            // 當網頁載入完成後初始化地圖
+            window.onload = function () {
+                initMap();
+            }
+    </script>
+  <h2><label for="origin">起點地址：</label></h2>
+    <input type="text" style="font-size: 20px;" id="origin" placeholder="輸入起點地址">
+  
+    <h2><label for="destination">終點地址：</label></h2>
+    <input type="text" style="font-size: 20px;" id="destination" placeholder="輸入終點地址">
+    <button onclick="calculateDistance(),geocodeAddress(),geocodeAddress2(),calculateRoute()">計算路線距離</button>
+    <p id="distance"></p>
+    <!--<p id="latitude"></p>
+    <p id="longitude"></p>
+    <p id="latitude2"></p>
+    <p id="longitude2"></p> -->
+    <div id="map" >
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAewWLaU_k0ZoEKYT4JslOjsA3_fM3xujY&callback=initMap"></script>
+    </div>
+    <input type="button" value="選擇司機" onclick="location.href='https://www.wibibi.com/info.php?tid=117'">
+</body>
+</html>
