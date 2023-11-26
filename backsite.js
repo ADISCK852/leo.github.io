@@ -9,21 +9,35 @@ const getCurrentPosition = () =>{
     };
       map.setCenter(currentPosition)
       map.setZoom(15);
+
+      var markerIcon = {
+        path: google.maps.SymbolPath.CIRCLE, // 使用圓形符號
+        fillColor: '#004cff', // 填充顏色，這裡是藍色
+        fillOpacity: 3, // 填充不透明度
+        strokeColor: '#000000', // 邊框顏色
+        strokeWeight: 0, // 邊框寬度
+        scale: 7 // 圓形的尺寸
+      };
+      currentMarker = new google.maps.Marker({
+        position: currentPosition,
+        map: map,
+        title: '您的當前位置',
+        icon: markerIcon
+      });
+      // 在標點上添加文字視窗
+      infowindow = new google.maps.InfoWindow({
+        content: '這是您的當前位置',
+      });
+      // 監聽標點的 mouseover 事件
+      google.maps.event.addListener(currentMarker, 'mouseover', function() {
+        infowindow.open(map, currentMarker);
+      });
+      // 監聽標點的 mouseout 事件
+      google.maps.event.addListener(currentMarker, 'mouseout', function() {
+        infowindow.close();
+      });
     });
-    var markerIcon = {
-      path: google.maps.SymbolPath.CIRCLE, // 使用圓形符號
-      fillColor: '#004cff', // 填充顏色，這裡是藍色
-      fillOpacity: 3, // 填充不透明度
-      strokeColor: '#000000', // 邊框顏色
-      strokeWeight: 0, // 邊框寬度
-      scale: 10 // 圓形的尺寸
-    };
-    currentMarker = new google.maps.Marker({
-      position: currentPosition,
-      map: map,
-      title: '您的當前位置',
-      icon: markerIcon
-    });
+
       directionsService = new google.maps.DirectionsService();
       directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
       // 創建一個地理編碼器
