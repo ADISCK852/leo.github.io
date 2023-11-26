@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#map {
+    height: 870px ;
+    width: 100%;  
+}
+
+.hidden-button {
+    display: none;
+}
+#stationList{
+    background-color: bisque;
+    width: 100%;
+    font-size: 22px;
+    display: none;
+}
+.all{
+    display: flex;
+    margin: auto;
+}
+.wordstlye{
+    font-size: 30px;
+    color: red;
+    background-color: lightblue;
+    font-family: '標楷體';
+    position: fixed;
+    top: 759px;
+    width: 100%;
+    height: 164px;
+    border-radius: 15px;
+}
+.left{
+    background-color:rgb(97, 150, 219); 
+    width: 336px;
+    border-radius: 15px;
+     
+}
+.title{
+    font-family: '標楷體';
+    font-size: 20px;
+}
+

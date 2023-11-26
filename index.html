@@ -2,17 +2,19 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>動態 Google 地圖</title>
-    <script src = "convert.js"></script>
+    <title>微型公車</title>
     <script src = "excel.js"></script>
     <script src="point.js"></script>
     <script src = "lastbestpath.js"></script>
+    <script src = "bus.js"></script>
+    <script src = "backsite.js"></script>
+    <!-- <script src = "hiddentext.js"></script> -->
     <link rel="stylesheet" type="text/css" href="./style.css" />
-    </style>
 </head>
-
 <body>
-    <h1>動態 Google 地圖</h1>
+    <div class="title">
+        <h1>微型公車v0.3</h1>
+    </div>
     
     <script>
             // 當網頁載入完成後初始化地圖
@@ -20,20 +22,31 @@
                 initMap();
             }
     </script>
-  <h2><label for="origin">起點地址：</label></h2>
-    <input type="text" style="font-size: 20px;" id="origin" placeholder="輸入起點地址">
-  
-    <h2><label for="destination">終點地址：</label></h2>
-    <input type="text" style="font-size: 20px;" id="destination" placeholder="輸入終點地址">
-    <button onclick="calculateDistance(),geocodeAddress(),geocodeAddress2(),calculateRoute()">計算路線距離</button>
-    <p id="distance"></p>
-    <!--<p id="latitude"></p>
-    <p id="longitude"></p>
-    <p id="latitude2"></p>
-    <p id="longitude2"></p> -->
-    <div id="map" >
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAewWLaU_k0ZoEKYT4JslOjsA3_fM3xujY&callback=initMap"></script>
+
+    <div class="all">
+        <div class="left" >
+            <div class="123"> 
+                <div style="font-family: '標楷體';">    
+                    <h2><label for="origin">起點地址(可在地圖直接點選)：</label></h2>
+                    <input type="text" size="30" style="font-size: 20px;" id="origin" placeholder="輸入起點地址">
+                    
+                    <h2><label for="destination">終點地址(可在地圖直接點選)：</label></h2>
+                    <input type="text" size="30" style="font-size: 20px;" id="destination" placeholder="輸入終點地址">
+                    
+                    <button id="showButton" style="font-size: 20px;" onclick="calculateDistance(),initializeMap(),calculateRoute()">計算路線距離</button>
+                    <div id="stationList"></div>
+                    <p style="background-color: aquamarine;" id="distance"></p>
+                    <!-- 票價顯示 -->
+                    <p style="background-color: aqua;"id='fare'></p>
+                    <button style="font-size: 20px;" onclick = "getCurrentPosition()">返回當前位置</button>  
+                    <div class= 'wordstlye'>
+                        <br>本組運算式是以：
+                        <br>起步價1公里35元
+                        <br>續跑價每公里12元</div>
+                </div>
+            </div>
+        </div>  
+        <div id="map" ><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvBcd_fOip9Vye2vD3jgH48BlMkc3J1mY&callback=initMap"></script></div>
     </div>
-    <input type="button" value="選擇司機" onclick="location.href='https://www.wibibi.com/info.php?tid=117'">
 </body>
 </html>
