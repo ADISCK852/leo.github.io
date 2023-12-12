@@ -49,7 +49,7 @@ function showTransitStations(route) {
     else{
         // 在HTML中顯示公車站名稱清單
         let stationList = document.getElementById('stationList');
-        stationList.innerHTML = "<h3>微型公車</h3><ul>";
+        stationList.innerHTML = "<h3>經過的公車站別</h3><ul>";
         transitStations.forEach(function (station) {
             stationList.innerHTML += "<li>" + station + "</li>";
         });

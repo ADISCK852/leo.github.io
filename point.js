@@ -3,7 +3,7 @@ let endMarker;
 let geocode;
 let currentPistion;
 let markerIcon;
-let infowindow
+let infowindow;
 function initMap() {
   let map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 23.953919515364724, lng: 120.49666396116729 },

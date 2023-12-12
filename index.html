@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>微型公車</title>
     <script src = "excel.js"></script>
     <script src="point.js"></script>
@@ -12,10 +13,6 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 <body>
-    <div class="title">
-        <h1>微型公車v0.5</h1>
-    </div>
-    
     <script>
             // 當網頁載入完成後初始化地圖
             window.onload = function () {
@@ -24,28 +21,31 @@
     </script>
 
     <div class="all">
-        <div class="left" >
-            <div class="123"> 
-                <div style="font-family: '標楷體';">    
-                    <h2><label for="origin">起點地址(可在地圖直接點選)：</label></h2>
-                    <input type="text" size="30" style="font-size: 20px;" id="origin" placeholder="輸入起點地址">
+         <div class="left" >
+            <div class="123">
+                <div style="font-family: '標楷體';">
+                    <h1 style="background-color: rgb(245, 238, 238);">微型公車v0.5</h1>
+                    <h2 style="background-color: rgb(214, 210, 206);">本地圖可以點按地圖進行起點終點的選擇</h2>
+                    <label style="font-size: 26px;" for="origin"><b>起點地址</b></label>
+                    <input type="text" size="30" style="font-size: 100%;" id="origin" placeholder="輸入起點地址">
                     
-                    <h2><label for="destination">終點地址(可在地圖直接點選)：</label></h2>
-                    <input type="text" size="30" style="font-size: 20px;" id="destination" placeholder="輸入終點地址">
+                    <label style="font-size: 26px;" for="destination"><b>終點地址</b></label>
+                    <input type="text" size="30" style="font-size: 100%;"  id="destination" placeholder="輸入終點地址">
                     
-                    <button id="showButton" style="font-size: 20px;" onclick="calculateDistance(),initializeMap(),calculateRoute()">計算路線距離</button>
+                    <button id="showButton" style="font-size: 17px;" onclick="calculateDistance(),initializeMap(),calculateRoute()">計算路線距離</button>
                     <div id="stationList"></div>
-                    <p style="background-color: aquamarine;" id="distance"></p>
+                    <h3><p style="background-color: aquamarine;" id="distance"></p></h3>
                     <!-- 票價顯示 -->
-                    <p style="background-color: aqua;"id='fare'></p>
-                    <button style="font-size: 20px;" onclick = "getCurrentPosition()">返回當前位置</button>  
-                    <div class= 'wordstlye'>
-                        <br>本組運算式是以：
-                        <br>起步價1公里35元
-                        <br>續跑價每公里12元</div>
+                    <h3><p style="background-color: aqua;"id='fare'></p></h3>
+                    <button style="font-size: 17px;" onclick = "getCurrentPosition()">返回當前位置</button>  
+                        <div class= 'wordstlye'>
+                            費率計算方式：
+                            <br>起步價1公里30元
+                            <br>續跑價每公里10元   
+                        </div>
                 </div>
             </div>
-        </div>  
+        </div>
         <div id="map" ><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvBcd_fOip9Vye2vD3jgH48BlMkc3J1mY&callback=initMap"></script></div>
     </div>
 </body>
