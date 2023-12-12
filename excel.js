@@ -16,9 +16,9 @@ function calculateDistance() {
 
     directionsService.route(request, function (result, status) {
       if (status === google.maps.DirectionsStatus.OK) {
+        console.log(status)
         let countwalk=0
         let legs = result.routes[0].legs;
-        console.log(result)
         for (let i = 0; i < legs.length; i++) {
             let steps = legs[i].steps;
             for (let j = 0; j < steps.length; j++) {
@@ -39,14 +39,14 @@ function calculateDistance() {
         if (distance.match('公尺') == null) {
           console.log('公里')
           if (distancedata > 1){
-          dataA = Math.round(((total-1)*12)+35)
+          dataA = Math.round(((total-1)*10)+30)
           }
           else {
-          dataA = 35
+          dataA = 30
           }
         } else {
           console.log('公尺')
-          dataA = 35
+          dataA = 30
         }
         document.getElementById('fare').innerHTML = '票價' + dataA+'元';
         console.log(dataA)
