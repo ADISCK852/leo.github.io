@@ -3,15 +3,18 @@ function calculateDistance() {
     let destination = document.getElementById('destination').value;
 
     let directionsService = new google.maps.DirectionsService();
-
+    //固定時間，須改數值
+    const pastDepartureTimeInSeconds = Math.floor(new Date(2024, 2, 24, 14, 0, 0).getTime() / 1000);
+    // 路徑請求
     let request = {
-      origin: origin,
-      destination: destination,
-      travelMode: google.maps.TravelMode.TRANSIT,
-      transitOptions: {
-        modes: [google.maps.TransitMode.BUS],
-        routingPreference: 'FEWER_TRANSFERS',
-      },
+        origin: origin,
+        destination: destination,
+        travelMode: 'TRANSIT', // 使用TRANSIT模式以顯示公車站
+        transitOptions: {
+            modes: [google.maps.TransitMode.BUS],
+            routingPreference: 'FEWER_TRANSFERS',
+            departureTime: new Date(pastDepartureTimeInSeconds * 1000 ),
+          },
     };
 
     directionsService.route(request, function (result, status) {

@@ -13,7 +13,6 @@
     display: none;
 }
 #stationList{
-    margin-top: 20px;
     background-color: bisque;
     width: 100%;
     font-size: 22px;
@@ -45,11 +44,4 @@
 .title{
     font-family: '標楷體';
     font-size: 20px;
-}
-@media only screen and (max-width: 1000px) {
-    /* 小螢幕時的樣式調整 */
-    .wordstlye, nav, .left, #map {
-        padding: 5%;
-    }
-
 }

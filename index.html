@@ -34,7 +34,10 @@
                     
                     <button id="showButton" style="font-size: 17px;" onclick="calculateDistance(),initializeMap(),calculateRoute()">計算路線距離</button>
                     <div id="stationList"></div>
+                    <!-- 距離顯示 -->
                     <h3><p style="background-color: aquamarine;" id="distance"></p></h3>
+                    <!--預計到達時間顯示-->
+                    <h3><p style="background-color: aquamarine;"id='duration'></p></h3>
                     <!-- 票價顯示 -->
                     <h3><p style="background-color: aqua;"id='fare'></p></h3>
                     <button style="font-size: 17px;" onclick = "getCurrentPosition()">返回當前位置</button>  
@@ -46,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div id="map" ><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvBcd_fOip9Vye2vD3jgH48BlMkc3J1mY&callback=initMap"></script></div>
+        <div id="map" ><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsHdIDjXrZQyKSj6fpbHf7bxOcEpLU-Qw&callback=initMap&libraries=places"></script></div>
     </div>
 </body>
 </html>

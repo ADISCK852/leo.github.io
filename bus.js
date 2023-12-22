@@ -3,7 +3,8 @@ function initializeMap(){
     // 獲取用戶輸入的起始位址和目的地位址
     let origin = document.getElementById('origin').value;
     let destination = document.getElementById('destination').value;
-
+    //固定時間，須改數值
+    const pastDepartureTimeInSeconds = Math.floor(new Date(2024, 2, 24, 14, 0, 0).getTime() / 1000);
     // 路徑請求
     let request = {
         origin: origin,
@@ -12,6 +13,7 @@ function initializeMap(){
         transitOptions: {
             modes: [google.maps.TransitMode.BUS],
             routingPreference: 'FEWER_TRANSFERS',
+            departureTime: new Date(pastDepartureTimeInSeconds * 1000 ),
           },
     };
     const fare = document.getElementById('fare')
