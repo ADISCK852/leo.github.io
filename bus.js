@@ -16,6 +16,7 @@ function initializeMap(){
             departureTime: new Date(pastDepartureTimeInSeconds * 1000 ),
           },
     };
+    const duration = document.getElementById('duration')
     const fare = document.getElementById('fare')
     const stationList = document.getElementById('stationList')
     directionsService.route(request, function (response, status) {
@@ -23,10 +24,12 @@ function initializeMap(){
             var route = response.routes[0];
             showTransitStations(route);
             stationList.style.display = 'block'
+            duration.style.display = 'block'
         }
         else {
             stationList.style.display = 'none' 
             fare.style.display = 'none'
+            duration.style.display = 'none'
             alert("請重新選擇路線")
         }
     });

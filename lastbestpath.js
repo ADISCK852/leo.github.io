@@ -35,6 +35,7 @@
           stationList.innerHTML=''
           distance.style.display = 'none'
           fare.style.display = 'none'
+          duration.style.display = 'none'
           
         }
         else{
@@ -43,6 +44,7 @@
             directionsRenderer.setDirections(result);
             fare.style.display = 'block'
             distance.style.display = 'block'
+            duration.style.display = 'block'
           } else {
             // 如果沒有公車路線，將路線模式更改為開車
             // request.travelMode = 'DRIVING';
