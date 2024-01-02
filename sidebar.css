@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  /* // layout */
+  .dropdown {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    .form {
+      display: flex;
+      input {
+        width: 200px;
+      }
+      .button {
+        width: 60px;
+        .fa-chevron-down {
+          transform: rotate(0deg);
+          transition: all 0.6s;
+  
+          &.active {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      input,
+      button {
+        border: none;
+        width: 80%;
+        padding: 10px ;
+        background-color: rgb(192, 127, 42);
+        color: #fff;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .dropdownList {
+      display: none;
+      background-color: #9e6137;
+      li {
+        padding: 20px ;
+        &:hover {
+          background-color: #d877db;
+          transition: all 0.5s ease;
+        }
+      }
+    }
+  }

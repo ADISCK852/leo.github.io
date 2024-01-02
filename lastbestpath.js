@@ -50,6 +50,7 @@
             // request.travelMode = 'DRIVING';
             fare.style.display = 'none'
             stationList.style.display = 'none'
+            duration.style.display = 'none'
             alert("此路線目前未提供服務")
             
             

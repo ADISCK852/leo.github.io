@@ -81,6 +81,13 @@ directionsRenderer = new google.maps.DirectionsRenderer({ map: map });
           document.getElementById('destination').value = '';
     }
   });
+  $(function () {
+    $(".button").click((e)=> {
+      e.preventDefault();
+      $(".dropdownList").slideToggle(500);
+      $(".fa-chevron-down").toggleClass("active");
+    });
+  });
 }
 
 function geocodeLatLng(latlng, elementId) {
