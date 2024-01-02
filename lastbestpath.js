@@ -18,7 +18,7 @@
       directionsService.route(request, function(result, status) {
         const stationList = document.getElementById('stationList')
         const fare = document.getElementById('fare')
-        const distance = document.getElementById('distance')
+        const total = document.getElementById('total')
         if (status == 'OK') {
           // 檢查是否有公車路線
           let start_address = result.routes[0].legs[0].start_address
@@ -33,7 +33,7 @@
         if ((start_address.match('彰化') && end_address.match('彰化'))  == null){
           alert('尚未開始服務')
           stationList.innerHTML=''
-          distance.style.display = 'none'
+          total.style.display = 'none'
           fare.style.display = 'none'
           duration.style.display = 'none'
           
@@ -43,13 +43,14 @@
             // 顯示原始公車路線
             directionsRenderer.setDirections(result);
             fare.style.display = 'block'
-            distance.style.display = 'block'
+            total.style.display = 'block'
             duration.style.display = 'block'
           } else {
             // 如果沒有公車路線，將路線模式更改為開車
             // request.travelMode = 'DRIVING';
             fare.style.display = 'none'
             stationList.style.display = 'none'
+            total.style.display = 'none'
             duration.style.display = 'none'
             alert("此路線目前未提供服務")
             

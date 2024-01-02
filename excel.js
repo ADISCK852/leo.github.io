@@ -31,13 +31,15 @@ function calculateDistance() {
                 }
             }
         }
+        //步行距離換算成公里數
         let countwalkdistance = countwalk/1000
-        console.log(countwalkdistance)
+        //抓取距離的元素
         let distance = result.routes[0].legs[0].distance.text;
-        document.getElementById('distance').innerHTML = '路線距離：' + distance;
       //計算票價
         let distancedata = parseFloat(distance)
+        console.log(distancedata)
         let total = distancedata-countwalkdistance
+        document.getElementById('total').innerHTML = '行駛距離' + (Math.round(total*10.0)/10.0) +'公里'
         let dataA;
         if (distance.match('公尺') == null) {
           console.log('公里')
