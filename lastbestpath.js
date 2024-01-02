@@ -49,7 +49,7 @@
             // 如果沒有公車路線，將路線模式更改為開車
             // request.travelMode = 'DRIVING';
             fare.style.display = 'none'
-            stationList.innerHTML = ''
+            stationList.style.display = 'none'
             total.style.display = 'none'
             duration.style.display = 'none'
             alert("此路線目前未提供服務")
