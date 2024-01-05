@@ -8,7 +8,6 @@
     <script src="point.js"></script>
     <script src = "lastbestpath.js"></script>
     <script src = "bus.js"></script>
-    <script src = "backsite.js"></script>
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link rel="stylesheet" type="text/css" href="./sidebar.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -42,7 +41,7 @@
                     <p style="background-color: aquamarine;"id='duration'></p>
                     <!-- 票價顯示 -->
                     <p style="background-color: aqua;"id='fare'></p>
-                    <button style="font-size: 17px;" onclick = "getCurrentPosition()">返回當前位置</button>
+                    
                 </div>
                 <div>
                     <div class="dropdown">
@@ -57,7 +56,9 @@
                 </div>      
             </div>
         </div>
+        <button id="button_position" class = 'button_position' onclick = "location"> <i class="fa-solid fa-location-arrow"></i> 返回目前位置</button>
         <div id="map" ><script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsHdIDjXrZQyKSj6fpbHf7bxOcEpLU-Qw&callback=initMap&libraries=places"></script></div>
+        
     </div>
 </body>
 </html>

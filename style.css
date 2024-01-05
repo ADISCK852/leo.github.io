@@ -47,3 +47,12 @@ p{
     font-family: '標楷體';
     font-size: 20px;
 }
+.button_position{
+    font-family: '標楷體';
+    font-size: 17px;
+    border-radius: 15px;
+    height: 40px ;
+    width: 150px;
+    padding: 2px;
+}
+

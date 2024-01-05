@@ -7,32 +7,31 @@ let infowindow;
 function initMap() {
   let map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 23.953919515364724, lng: 120.49666396116729 },
-      zoom: 11.3  // 控制地圖的縮放級別
+      zoom: 11.3,  // 控制地圖的縮放級別
   });
   navigator.geolocation.getCurrentPosition(function(position) {
     currentPosition = {
       lat: position.coords.latitude,
       lng: position.coords.longitude,
-
     };
-      map.setCenter(currentPosition)
-      map.setZoom(15);
-      var markerIcon = {
-        path: google.maps.SymbolPath.CIRCLE, // 使用圓形符號
-        fillColor: '#004cff', // 填充顏色，這裡是藍色
-        fillOpacity: 3, // 填充不透明度
-        strokeColor: '#000000', // 邊框顏色
-        strokeWeight: 0, // 邊框寬度
-        scale: 7 // 圓形的尺寸
-      };
-      currentMarker = new google.maps.Marker({
-        position: currentPosition,
-        map: map,
-        title: '您的當前位置',
-        icon: markerIcon
-      });
+    map.setCenter(currentPosition)
+    map.setZoom(15);
+    var markerIcon = {
+      path: google.maps.SymbolPath.CIRCLE, // 使用圓形符號
+      fillColor: '#004cff', // 填充顏色，這裡是藍色
+      fillOpacity: 3, // 填充不透明度
+      strokeColor: 'black', // 邊框顏色
+      strokeWeight: 3, // 邊框寬度
+      scale: 7 // 圓形的尺寸
+    };
+    currentMarker = new google.maps.Marker({
+      position: currentPosition,
+      map: map,
+      title: '您的當前位置',
+      icon: markerIcon
+    });
         
-          // 在標點上添加文字視窗
+      // 在標點上添加文字視窗
       infowindow = new google.maps.InfoWindow({
         content: '這是您的當前位置',
       });
@@ -44,6 +43,23 @@ function initMap() {
       google.maps.event.addListener(currentMarker, 'mouseout', function() {
         infowindow.close();
       });
+  });
+  const locationButton = document.getElementById("button_position");
+  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(locationButton);
+  locationButton.addEventListener("click", () => {
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          map.setCenter(pos)
+          map.setZoom(15);
+        },
+      );
+    }
   });
 //初始化
 directionsService = new google.maps.DirectionsService();
