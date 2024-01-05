@@ -45,6 +45,9 @@ function initMap() {
       });
   });
   const locationButton = document.getElementById("button_position");
+  map.addListener("drag", ()=>{
+    locationButton.style.display = "block"
+  })
   map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(locationButton);
   locationButton.addEventListener("click", () => {
     // Try HTML5 geolocation.
@@ -57,6 +60,7 @@ function initMap() {
           };
           map.setCenter(pos)
           map.setZoom(15);
+          locationButton.style.display = "none"
         },
       );
     }

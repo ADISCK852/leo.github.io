@@ -11,29 +11,24 @@ p{
     font-family: '標楷體';
 }
 #select{
-    font-size: 33px;
+    font-size: 30px;
     font-family: '標楷體';
     padding: 0;
 }
-
-.hidden-button {
-    display: none;
-}
 #stationList{
     background-color: bisque;
-    width: 100%;
     font-size: 22px;
-    display: none;
+
 }
 .all{
     display: flex;
     height: 100vh;
 }
 .wordstlye{
-    font-size: 30px;
+    font-size: 25px;
     color: rgb(41, 11, 207);
     font-family: '標楷體';
-    text-align: right;
+    line-height: 40px;
 }
 .left{
     background-color:rgb(83, 118, 212); 
@@ -54,5 +49,16 @@ p{
     height: 40px ;
     width: 150px;
     padding: 2px;
+    display: none;
 }
-
+.fare{
+    font-size: 32px;
+    background-color:   salmon;
+    line-height: 70px;
+    position: relative;
+    top: 20px;
+    
+}
+.data{
+    line-height: 30px;
+}

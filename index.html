@@ -25,24 +25,26 @@
                     </div>
                 </div>
                 <div>
-                        <label style="font-size: 26px;" for="origin"><b>起點地址</b></label>
-                        <input type="text" size="30" style="font-size: 100%;" id="origin" placeholder="輸入起點地址">
-                        <label style="font-size: 26px;" for="destination"><b>終點地址</b></label>
-                        <input type="text" size="30" style="font-size: 100%;"  id="destination" placeholder="輸入終點地址">
+                        <label style="font-size: 30px;" for="origin"><b>起點地址</b></label>
+                        <input type="text" size="32" style="font-size: 100%;" id="origin" placeholder="輸入起點地址">
+                        <label style="font-size: 30px;" for="destination"><b>終點地址</b></label>
+                        <input type="text" size="32" style="font-size: 100%;"  id="destination" placeholder="輸入終點地址">
                 </div>
                 <div>
                         <button id="showButton" style="font-size: 17px;" onclick="calculateDistance(),initializeMap(),calculateRoute()">計算路線距離</button>
                 </div>
-                <div>
+                <div class="data">
                     <p id="stationList"></p>
                     <!-- 距離顯示 -->
                     <p style="background-color: aquamarine;" id="total"></p>
                     <!--預計到達時間顯示-->
                     <p style="background-color: aquamarine;"id='duration'></p>
                     <!-- 票價顯示 -->
-                    <p style="background-color: aqua;"id='fare'></p>
-                    
                 </div>
+                <div>
+                    <p class="fare" id='fare'></p>
+                </div>
+
                 <div>
                     <div class="dropdown">
                         <div class="form">
@@ -53,7 +55,8 @@
                           <a class="wordstlye" href="#">起步價1公里30元<br>續跑價每公里10元 </a>
                         </ul>
                        </div>
-                </div>      
+                </div>
+
             </div>
         </div>
         <button id="button_position" class = 'button_position' onclick = "location"> <i class="fa-solid fa-location-arrow"></i> 返回目前位置</button>
