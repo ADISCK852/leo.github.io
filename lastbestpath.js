@@ -76,9 +76,9 @@
           if (status == 'OK') {
           console.log(result)
           let duration = result.routes[0].legs[0].duration.value
-          const durational = Math.floor(duration/60)+3
+          const durational = Math.floor(duration/60)
           console.log(duration)
-          document.getElementById('duration').innerHTML = '預計到達時間：'+durational + '分鐘'
+          document.getElementById('duration').innerHTML = '預計行駛時間：'+durational + '分鐘'
           }
         })
     })}
