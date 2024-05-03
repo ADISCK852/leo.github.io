@@ -4,7 +4,7 @@ function calculateDistance() {
 
     let directionsService = new google.maps.DirectionsService();
     //固定時間，須改數值
-    const pastDepartureTimeInSeconds = Math.floor(new Date(2024, 2, 24, 17, 0, 0).getTime() / 1000);
+    const pastDepartureTimeInSeconds = Math.floor(new Date(2024, 6, 24, 17, 0, 0).getTime() / 1000);
     // 路徑請求
     let request = {
         origin: origin,
